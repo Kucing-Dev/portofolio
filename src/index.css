@@ -1,1 +1,24 @@
 @import "tailwindcss";
+
+@import "tailwindcss";
+
+/* Baris sakti Tailwind v4 kamu yang kemarin */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Tambahkan Keyframes Animasi untuk Background Bergerak di sini: */
+@layer utilities {
+  @keyframes backgroundScroll {
+    from {
+      background-position: 0 0;
+    }
+    to {
+      background-position: 800px 0; /* Jarak gerak horizontal (harus sama dengan background-size di JSX) */
+    }
+  }
+
+  .animate-backgroundScroll {
+    animation: backgroundScroll 25s linear infinite; /* Semakin besar detik, semakin lambat geraknya */
+  }
+}
