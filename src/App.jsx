@@ -14,18 +14,18 @@ export default function App() {
       {/* HEADER / TITLE SECTION */}
       <header className="text-center mb-8 animate-fade-in">
         <h1 className="text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-400 to-yellow-400 drop-shadow-sm tracking-wide">
-          NISA'S PORTFOLIO
+          Nisa portofolio
         </h1>
         <p className="text-xs text-purple-400 mt-2 tracking-widest font-mono">✦ MOTION CREATIVE ✦</p>
       </header>
 
       {/* NAVIGATION BAR (TAB STYLE) */}
       <nav className="max-w-5xl mx-auto mb-8 grid grid-cols-3 md:grid-cols-5 gap-2 text-center font-bold text-white text-sm">
-        <a href="#design" className="bg-emerald-300 py-3 rounded-full shadow-sm transform transition duration-300 hover:scale-105 hover:bg-emerald-400">DESIGN</a>
-        <a href="#projects" className="bg-orange-300 py-3 rounded-full shadow-sm transform transition duration-300 hover:scale-105 hover:bg-orange-400">PROJECTS</a>
-        <a href="#about" className="bg-amber-300 py-3 rounded-full shadow-sm transform transition duration-300 hover:scale-105 hover:bg-amber-400">ABOUT</a>
-        <a href="#contact" className="bg-sky-300 py-3 rounded-full shadow-sm transform transition duration-300 hover:scale-105 hover:bg-sky-400">CONTACT</a>
-        <a href="#skills" className="bg-purple-300 py-3 rounded-full shadow-sm transform transition duration-300 hover:scale-105 hover:bg-purple-400 col-span-3 md:col-span-1">SKILLS</a>
+        <a href="#design" className="bg-emerald-300 py-3 rounded-full shadow-sm transform transition duration-300 hover:scale-105 hover:bg-emerald-400">Desain</a>
+        <a href="#projects" className="bg-orange-300 py-3 rounded-full shadow-sm transform transition duration-300 hover:scale-105 hover:bg-orange-400">Proyek</a>
+        <a href="#about" className="bg-amber-300 py-3 rounded-full shadow-sm transform transition duration-300 hover:scale-105 hover:bg-amber-400">Tentang</a>
+        <a href="#contact" className="bg-sky-300 py-3 rounded-full shadow-sm transform transition duration-300 hover:scale-105 hover:bg-sky-400">Kontak</a>
+        <a href="#skills" className="bg-purple-300 py-3 rounded-full shadow-sm transform transition duration-300 hover:scale-105 hover:bg-purple-400 col-span-3 md:col-span-1">Skill</a>
       </nav>
 
       {/* MAIN DASHBOARD GRID */}
@@ -33,7 +33,7 @@ export default function App() {
         
         {/* LEFT COLUMN: DESIGN GALLERY (KOLOM GAMBAR) */}
         <section id="design" className="lg:col-span-4 bg-white/60 backdrop-blur-md p-6 rounded-3xl shadow-sm border border-white/40 transition duration-300 hover:shadow-md">
-          <h2 className="text-2xl font-bold text-center text-emerald-400 mb-4 tracking-wide">DESIGN</h2>
+          <h2 className="text-2xl font-bold text-center text-emerald-400 mb-4 tracking-wide">Desain</h2>
           <div className="grid grid-cols-3 gap-3">
             {[
               'gambar1.jpeg',
@@ -71,12 +71,12 @@ export default function App() {
 
         {/* MIDDLE COLUMN: PROJECTS LIST */}
         <section id="projects" className="lg:col-span-4 bg-white/60 backdrop-blur-md p-6 rounded-3xl shadow-sm border border-white/40 transition duration-300 hover:shadow-md">
-          <h2 className="text-3xl font-black text-center text-sky-400/80 mb-6 tracking-widest italic border-b border-sky-100 pb-2">PROJECTS</h2>
+          <h2 className="text-3xl font-black text-center text-sky-400/80 mb-6 tracking-widest italic border-b border-sky-100 pb-2">Proyek</h2>
           
           <div className="space-y-6">
             {[1, 2, 3].map((item) => (
               <div key={item} className="group cursor-pointer">
-                <h3 className="font-bold text-gray-800 group-hover:text-sky-400 transition-colors">PROJECTS {item}</h3>
+                <h3 className="font-bold text-gray-800 group-hover:text-sky-400 transition-colors">Proyek {item}</h3>
                 <p className="text-xs text-gray-500 mt-1 leading-relaxed">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                 </p>
@@ -97,7 +97,7 @@ export default function App() {
               <span className="text-2xl">🐱</span>
             </div>
             <div>
-              <h2 className="text-lg font-bold text-pink-400">ABOUT</h2>
+              <h2 className="text-lg font-bold text-pink-400">Tentang</h2>
               <p className="text-xs text-gray-500 mt-1 leading-relaxed">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
               </p>
@@ -106,20 +106,20 @@ export default function App() {
 
           {/* CONTACT CARD */}
           <section id="contact" className="bg-white/60 backdrop-blur-md p-6 rounded-3xl shadow-sm border border-white/40 transition duration-300 hover:shadow-md">
-            <h2 className="text-xl font-bold text-center text-sky-400 mb-4 tracking-wide">CONTACT</h2>
+            <h2 className="text-xl font-bold text-center text-sky-400 mb-4 tracking-wide">Kontak</h2>
             <form onSubmit={handleContactSubmit} className="space-y-2 text-xs">
               <input type="text" placeholder="Name" required className="w-full bg-white/80 p-2 rounded-xl border border-gray-200 outline-none focus:border-sky-300" />
               <input type="email" placeholder="Email" required className="w-full bg-white/80 p-2 rounded-xl border border-gray-200 outline-none focus:border-sky-300" />
               <textarea placeholder="Message" rows="2" required className="w-full bg-white/80 p-2 rounded-xl border border-gray-200 outline-none focus:border-sky-300 resize-none"></textarea>
               <button type="submit" className="w-full bg-pink-300 hover:bg-pink-400 text-white font-bold py-2 rounded-xl shadow-sm transition transform active:scale-95">
-                CONTACT
+                Kontak
               </button>
             </form>
           </section>
 
           {/* SKILLS CARD */}
           <section id="skills" className="bg-white/60 backdrop-blur-md p-6 rounded-3xl shadow-sm border border-white/40 transition duration-300 hover:shadow-md">
-            <h2 className="text-xl font-bold text-center text-purple-400 mb-4 tracking-wide">SKILLS</h2>
+            <h2 className="text-xl font-bold text-center text-purple-400 mb-4 tracking-wide">Skill</h2>
             <div className="flex justify-around items-center gap-2">
               {['Vite', 'React', 'CSS', 'Git'].map((skill, i) => (
                 <div key={i} className="flex flex-col items-center">
