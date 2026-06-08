@@ -88,13 +88,21 @@ export default function App() {
         </section>
 
         {/* RIGHT COLUMN: ABOUT, CONTACT, SKILLS */}
-        {/* DISINI KUNCI PERBAIKANNYA: Menggunakan lg:display-block dan lg:flex-none agar spasi space-y-6 wajib jalan di desktop */}
-        <div className="w-full lg:col-span-4 flex flex-col gap-6 lg:flex-none lg:block lg:space-y-6">
+        {/* SOLUSI TOTAL: Kita pakai flex flex-col gap-6 secara konsisten di semua ukuran layar agar jaraknya stabil */}
+        <div className="w-full lg:col-span-4 flex flex-col gap-6">
           
           {/* ABOUT CARD */}
           <section id="about" className="w-full order-1 bg-white/60 backdrop-blur-md p-6 rounded-3xl shadow-sm border border-white/40 flex gap-4 items-center transition duration-300 hover:shadow-md">
-            <div className="w-16 h-16 rounded-full bg-pink-200 border-2 border-white overflow-hidden shadow-inner flex-shrink-0 flex items-center justify-center">
-              <span className="text-2xl">🐱</span>
+            <div className="w-20 h-20 rounded-full bg-pink-200 border-2 border-white overflow-hidden shadow-inner flex-shrink-0 flex items-center justify-center">
+              <img 
+                src={new URL('./assets/profile.jpg', import.meta.url).href} 
+                alt="Foto Profil Nisa" 
+                className="w-full h-full object-cover"
+                onError={(e) => {
+                  e.target.onerror = null;
+                  e.target.src = 'https://placehold.co/150x150/fdf2f8/ec4899?text=👤';
+                }}
+              />
             </div>
             <div>
               <h2 className="text-lg font-bold text-pink-400">Tentang</h2>
