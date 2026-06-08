@@ -29,10 +29,10 @@ export default function App() {
       </nav>
 
       {/* MAIN DASHBOARD GRID */}
-      <main className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+      <main className="max-w-6xl mx-auto flex flex-col lg:grid lg:grid-cols-12 gap-6 items-start">
         
         {/* LEFT COLUMN: DESIGN GALLERY (KOLOM GAMBAR) */}
-        <section id="design" className="lg:col-span-4 bg-white/60 backdrop-blur-md p-6 rounded-3xl shadow-sm border border-white/40 transition duration-300 hover:shadow-md">
+        <section id="design" className="w-full lg:col-span-4 order-4 lg:order-none bg-white/60 backdrop-blur-md p-6 rounded-3xl shadow-sm border border-white/40 transition duration-300 hover:shadow-md">
           <h2 className="text-2xl font-bold text-center text-emerald-400 mb-4 tracking-wide">Desain</h2>
           <div className="grid grid-cols-3 gap-3">
             {[
@@ -46,7 +46,6 @@ export default function App() {
               'gambar8.jpeg',
               'gambar9.jpeg'
             ].map((imgName, i) => {
-              // Menggunakan dynamic import untuk asset internal di Vite agar tidak pecah saat deploy
               const imgUrl = new URL(`./assets/${imgName}`, import.meta.url).href;
               
               return (
@@ -70,7 +69,7 @@ export default function App() {
         </section>
 
         {/* MIDDLE COLUMN: PROJECTS LIST */}
-        <section id="projects" className="lg:col-span-4 bg-white/60 backdrop-blur-md p-6 rounded-3xl shadow-sm border border-white/40 transition duration-300 hover:shadow-md">
+        <section id="projects" className="w-full lg:col-span-4 order-3 lg:order-none bg-white/60 backdrop-blur-md p-6 rounded-3xl shadow-sm border border-white/40 transition duration-300 hover:shadow-md">
           <h2 className="text-3xl font-black text-center text-sky-400/80 mb-6 tracking-widest italic border-b border-sky-100 pb-2">Proyek</h2>
           
           <div className="space-y-6">
@@ -89,10 +88,11 @@ export default function App() {
         </section>
 
         {/* RIGHT COLUMN: ABOUT, CONTACT, SKILLS */}
-        <div className="lg:col-span-4 space-y-6">
+        {/* DISINI KUNCI PERBAIKANNYA: Menggunakan lg:display-block dan lg:flex-none agar spasi space-y-6 wajib jalan di desktop */}
+        <div className="w-full lg:col-span-4 flex flex-col gap-6 lg:flex-none lg:block lg:space-y-6">
           
           {/* ABOUT CARD */}
-          <section id="about" className="bg-white/60 backdrop-blur-md p-6 rounded-3xl shadow-sm border border-white/40 flex gap-4 items-center transition duration-300 hover:shadow-md">
+          <section id="about" className="w-full order-1 bg-white/60 backdrop-blur-md p-6 rounded-3xl shadow-sm border border-white/40 flex gap-4 items-center transition duration-300 hover:shadow-md">
             <div className="w-16 h-16 rounded-full bg-pink-200 border-2 border-white overflow-hidden shadow-inner flex-shrink-0 flex items-center justify-center">
               <span className="text-2xl">🐱</span>
             </div>
@@ -104,21 +104,8 @@ export default function App() {
             </div>
           </section>
 
-          {/* CONTACT CARD */}
-          <section id="contact" className="bg-white/60 backdrop-blur-md p-6 rounded-3xl shadow-sm border border-white/40 transition duration-300 hover:shadow-md">
-            <h2 className="text-xl font-bold text-center text-sky-400 mb-4 tracking-wide">Kontak</h2>
-            <form onSubmit={handleContactSubmit} className="space-y-2 text-xs">
-              <input type="text" placeholder="Name" required className="w-full bg-white/80 p-2 rounded-xl border border-gray-200 outline-none focus:border-sky-300" />
-              <input type="email" placeholder="Email" required className="w-full bg-white/80 p-2 rounded-xl border border-gray-200 outline-none focus:border-sky-300" />
-              <textarea placeholder="Message" rows="2" required className="w-full bg-white/80 p-2 rounded-xl border border-gray-200 outline-none focus:border-sky-300 resize-none"></textarea>
-              <button type="submit" className="w-full bg-pink-300 hover:bg-pink-400 text-white font-bold py-2 rounded-xl shadow-sm transition transform active:scale-95">
-                Kontak
-              </button>
-            </form>
-          </section>
-
           {/* SKILLS CARD */}
-          <section id="skills" className="bg-white/60 backdrop-blur-md p-6 rounded-3xl shadow-sm border border-white/40 transition duration-300 hover:shadow-md">
+          <section id="skills" className="w-full order-2 bg-white/60 backdrop-blur-md p-6 rounded-3xl shadow-sm border border-white/40 transition duration-300 hover:shadow-md">
             <h2 className="text-xl font-bold text-center text-purple-400 mb-4 tracking-wide">Skill</h2>
             <div className="flex justify-around items-center gap-2">
               {['Vite', 'React', 'CSS', 'Git'].map((skill, i) => (
@@ -130,6 +117,19 @@ export default function App() {
                 </div>
               ))}
             </div>
+          </section>
+
+          {/* CONTACT CARD */}
+          <section id="contact" className="w-full order-5 bg-white/60 backdrop-blur-md p-6 rounded-3xl shadow-sm border border-white/40 transition duration-300 hover:shadow-md">
+            <h2 className="text-xl font-bold text-center text-sky-400 mb-4 tracking-wide">Kontak</h2>
+            <form onSubmit={handleContactSubmit} className="space-y-2 text-xs">
+              <input type="text" placeholder="Name" required className="w-full bg-white/80 p-2 rounded-xl border border-gray-200 outline-none focus:border-sky-300" />
+              <input type="email" placeholder="Email" required className="w-full bg-white/80 p-2 rounded-xl border border-gray-200 outline-none focus:border-sky-300" />
+              <textarea placeholder="Message" rows="2" required className="w-full bg-white/80 p-2 rounded-xl border border-gray-200 outline-none focus:border-sky-300 resize-none"></textarea>
+              <button type="submit" className="w-full bg-pink-300 hover:bg-pink-400 text-white font-bold py-2 rounded-xl shadow-sm transition transform active:scale-95">
+                Kontak
+              </button>
+            </form>
           </section>
 
         </div>
